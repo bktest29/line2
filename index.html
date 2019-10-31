@@ -171,14 +171,22 @@
     <!-- Scripts -->
    <!-- <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>	-->
   <script src="https://static.line-scdn.net/liff/edge/2.1/liff.js"></script>
-  <script>
-    window.onload = function() {
-         liff.init({liffId: "1653396710-GWD5xZkW"}, function() {
-      salelfe();
-     countDown();
-    });
-    }	  
-    liff.init({liffId: "1653396710-GWD5xZkW"})
+  <script>   
+	// Using a Promise object
+   liff
+    .init({
+    liffId: "1653396710-GWD5xZkW" // use own liffId
+  })
+  .then(() => {
+    // Start to use liff's api
+  })
+  .catch((err: LiffError) => {
+    // Error happens during initialization
+    console.log(err.code, err.message);
+  });
+
+// Using a callback
+  liff.init({ liffId: "1653396710-GWD5xZkW" }, successCallback, errorCallback);  
 	  
   </script>	
     <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
